@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 
 public class JsonSchemaFormatRegexGeneratorURITest {
 
-
     private static Invocable testMethodInvoker;
     @BeforeAll
     public static void setUpTest(){
@@ -29,7 +28,7 @@ public class JsonSchemaFormatRegexGeneratorURITest {
     }
 
     private static boolean URITest(String toTest) throws ScriptException, NoSuchMethodException{
-        String regex =JsonSchemaFormatRegexGenerator.GetRegexForJsonSchemaFormat("URI");
+        String regex =JsonSchemaFormatRegexGenerator.GetRegexForJsonSchemaFormat("uri");
         return (boolean) testMethodInvoker.invokeFunction("evalRegex", regex, toTest);
     }
 
