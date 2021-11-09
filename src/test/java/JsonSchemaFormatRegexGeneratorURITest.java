@@ -53,6 +53,7 @@ public class JsonSchemaFormatRegexGeneratorURITest {
         Assertions.assertTrue(URITest("f+:"));
         Assertions.assertFalse(URITest("+a:"));
         Assertions.assertFalse(URITest("-:"));
+        Assertions.assertFalse(URITest("a&:"));
     }
 
     @Test
@@ -148,7 +149,7 @@ public class JsonSchemaFormatRegexGeneratorURITest {
         Assertions.assertTrue(URITest("https://fe/12.23/ee"));
         Assertions.assertTrue(URITest("https://fe/%5Fklw/!"));
         Assertions.assertTrue(URITest("https://fe/er:@/1w/%15"));
-        Assertions.assertFalse(URITest("https://fe/%1f"));
+        Assertions.assertFalse(URITest("https://fe/%1h"));
         Assertions.assertFalse(URITest("https://fe/[]"));
     }
 
@@ -167,7 +168,7 @@ public class JsonSchemaFormatRegexGeneratorURITest {
         Assertions.assertTrue(URITest("https:12/rt"));
         Assertions.assertTrue(URITest("https:%1F/fe"));
         Assertions.assertTrue(URITest("https:%1F/fe"));
-        Assertions.assertFalse(URITest("https:%1f/fe"));
+        Assertions.assertTrue(URITest("https:%1f/fe"));
     }
 
     @Test
@@ -178,7 +179,7 @@ public class JsonSchemaFormatRegexGeneratorURITest {
         Assertions.assertTrue(URITest("https:/fe?ert54"));
         Assertions.assertTrue(URITest("https:?12%45"));
         Assertions.assertTrue(URITest("https://fe?@:"));
-        Assertions.assertFalse(URITest("https://fe?%1f"));
+        Assertions.assertFalse(URITest("https://fe?%1j"));
         Assertions.assertFalse(URITest("https://fe?%1G"));
         Assertions.assertFalse(URITest("https://fe?]"));
         Assertions.assertFalse(URITest("https://fe?["));
@@ -196,7 +197,7 @@ public class JsonSchemaFormatRegexGeneratorURITest {
         Assertions.assertTrue(URITest("https:12/rt#/,;"));
         Assertions.assertTrue(URITest("https:12/rt?2%1F#?er?"));
         Assertions.assertFalse(URITest("https://fe##"));
-        Assertions.assertFalse(URITest("https://fe#%1f"));
+        Assertions.assertFalse(URITest("https://fe#%1g"));
         Assertions.assertFalse(URITest("https://fe#%1G"));
         Assertions.assertFalse(URITest("https://fe#]"));
         Assertions.assertFalse(URITest("https://fe#["));
